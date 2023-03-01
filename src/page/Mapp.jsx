@@ -1,6 +1,6 @@
-import React from 'react'
-import Main from '../component/Main'
-import Sidebar from '../component/Sidebar'
+import React from 'react';
+import Main from '../component/Main';
+import Sidebar from '../component/Sidebar';
 
 function Mapp() {
   return (
