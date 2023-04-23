@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    /* border: 1px solid #ff0000; */
+    font-family: "Poppins", sans-serif;
+}
+
+.top {
+    position: relative;
+    top: 70%;
+
+}
+
 /*=============== SCROLL BAR ===============*/
 ::-webkit-scrollbar {
     width: 5px;

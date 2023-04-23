@@ -1,73 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
+import { sendMessageToOpenAI } from "./Openai";
 
 function Main() {
+
+    const [input, setInput] = useState("");
+    const [messages, setMessages] = useState([]);
+
+    const handleMessageSubmit = async () => {
+        const response = await sendMessageToOpenAI(input);
+        setMessages([
+            ...messages,
+            { text: input, isUser: true },
+            { text: response, isUser: false },
+        ]);
+        setInput("");
+        // console.log(response);
+    };
+
     return (
         <>
-            <div className="flex flex-col flex-auto h-full p-6 pt-5">
+            <div className="flex flex-col flex-auto h-full pt-5">
 
-                <div className="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-full p-4" >
+                <div className="flex flex-col flex-auto flex-shrink-0 rounded-xl bg-gray-100 h-full " >
                     <div className="flex flex-col h-full overflow-x-auto mb-4">
                         <div className="flex flex-col h-full">
-                            <div className="grid grid-cols-12 gap-y-2">
-                                <div className="col-start-1 col-end-8 p-3 rounded-lg">
-                                    <div className="flex flex-row items-center">
-                                        <img src="https://www.digitaltrends.com/wp-content/uploads/2023/01/ChatGPT-OpenAI-logo.jpg?p=1" alt="Avatar" className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0" />
-                                        <div className=" ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl" >
-                                            <div>Hey How are you today?</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-start-1 col-end-8 p-3 rounded-lg">
-                                    <div className="flex flex-row items-center">
-                                        <img src="https://www.digitaltrends.com/wp-content/uploads/2023/01/ChatGPT-OpenAI-logo.jpg?p=1" alt="Avatar" className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0" />
-                                        <div className="ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl" >
-                                            <div>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing
-                                                elit. Vel ipsa commodi illum saepe numquam maxime
-                                                asperiores voluptate sit, minima perspiciatis.
+                            {messages.map((message, index) => (
+                                <div className={message.isUser ? "w-full text-gray-800 dark:text-gray-100 bg-[#E0E7FF]" : "w-full text-gray-800 dark:text-gray-100 bg-[#F3F4F6]"} key={index}>
+                                    <div className="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-3 md:py-6 flex lg:px-0">
+                                        <div className="w-[30px] flex flex-col relative items-end">
+                                            <div className="relative h-[30px] w-[30px] p-1 rounded-sm text-white flex items-center justify-center" >
+                                                <img alt="user" src={message.isUser ? "https://ionicframework.com/docs/img/demos/avatar.svg" : "https://cryptologos.cc/logos/chatcoin-chat-logo.png"} className="rounded-lg" />
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div className="col-start-1 col-end-13 p-3 rounded-lg">
-                                    <div className="flex items-center justify-start flex-row-reverse">
-                                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0" >
-                                            <img src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="Avatar" className="flex items-center justify-center h-10 w-10 rounded-full flex-shrink-0" />
-                                        </div>
-                                        <div className="mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl" >
-                                            <div>I"m ok what about you?</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col-start-1 col-end-13 p-3 rounded-lg">
-                                    <div className="flex items-center justify-start flex-row-reverse">
-                                        <div className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0" >
-                                            <img src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="Avatar" className="flex items-center justify-center h-10 w-10 rounded-full flex-shrink-0" />
-                                        </div>
-                                        <div className="mr-3 text-sm bg-indigo-100 py-2 px-4 shadow rounded-xl" >
-                                            <div>
-                                                Lorem ipsum dolor sit, amet consectetur adipisicing?
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
-                            </div>
+                                        <div className="relative flex w-[calc(100%-50px)] flex-col gap-1 md:gap-3 lg:w-[calc(100%-115px)]">
+                                            <div className="flex flex-grow flex-col gap-3">
+                                                <div className="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap">
+                                                    <div className="markdown prose w-full break-words dark:prose-invert dark">
+                                                        <p> {message.text}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
-                    <div className="flex flex-row items-center h-16 rounded-xl bg-white w-full px-4" >
-                        <div>
-                            <button className="flex items-center justify-center text-gray-400 hover:text-gray-600" >
-                                <i className="bx bxs-microphone bx-sm"></i>
-                            </button>
-                        </div>
+
+                    <div className="relative flex flex-row items-center h-16 rounded-xl bg-white w-full px-4 p-6">
+                        <button className="flex items-center justify-center text-gray-400 hover:text-gray-600" >
+                            <i className="bx bxs-microphone bx-sm"></i>
+                        </button>
                         <div className="flex-grow ml-4">
                             <div className=" w-full" title="Type a prompt">
-                                <input type="text" className="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10" />
+                                <input type="text"
+                                    value={input}
+                                    onChange={(e) => setInput(e.target.value)} className="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10" />
                             </div>
                         </div>
                         <div className="ml-4">
-                            <button className="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0" title="Send message">
+                            <button className="flex items-center justify-center bg-[#1C98F7] hover:bg-[#1C98F7] rounded-xl text-white px-4 py-1 flex-shrink-0" title="Send message" onClick={handleMessageSubmit}>
                                 <span>Send</span>
                                 <span className="ml-2">
                                     <i className="bx bxs-send "></i>
@@ -81,4 +74,30 @@ function Main() {
     )
 }
 
+const Chatmessage = ({ message }) => {
+    return (
+        <div className="w-full text-gray-800 dark:text-gray-100 ">
+            <div className="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-4 md:py-6 flex lg:px-0">
+                <div className="w-[30px] flex flex-col relative items-end">
+                    <div className="relative h-[30px] w-[30px] p-1 rounded-sm text-white flex items-center justify-center" >
+                        <img alt="user" src={message.user === "gpt" ? "https:cryptologos.cc/logos/chatcoin-chat-logo.png" : " https:ionicframework.com/docs/img/demos/avatar.svg"} className="rounded-lg" />
+                    </div>
+                </div>
+
+                <div className="relative flex w-[calc(100%-50px)] flex-col gap-1 md:gap-3 lg:w-[calc(100%-115px)]">
+                    <div className="flex flex-grow flex-col gap-3">
+                        <div className="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap">
+                            <div className="markdown prose w-full break-words dark:prose-invert dark">
+                                <p>{message.message}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
 export default Main
+
+// https://ionicframework.com/docs/img/demos/avatar.svg https://cryptologos.cc/logos/chatcoin-chat-logo.png
