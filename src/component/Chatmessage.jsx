@@ -1,16 +1,29 @@
 import React from 'react'
 
-const Chatmessage = () => {
+const Chatmessage = ({ messages }) => {
     return (
         <>
-            <div className="col-start-1 col-end-12 sm:col-end-8 rounded-lg">
-                <div className="flex flex-row items-center">
-                    <img src="https://cryptologos.cc/logos/chatcoin-chat-logo.png" alt="Avatar" className="flex items-center justify-center h-10 w-10 rounded-full bg-indigo-500 flex-shrink-0" />
-                    <div className=" ml-3 text-sm bg-white py-2 px-4 shadow rounded-xl" >
-                        <div>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Blanditiis natus odit quo mollitia alias et praesentium. Voluptatibus optio molestias necessitatibus atque nostrum tempora, aliquid nesciunt numquam laborum alias doloribus adipisci?</div>
+            {messages.map((message, index) => (
+                <div className={message.isUser ? "w-full text-gray-800 dark:text-gray-100 bg-[#E0E7FF]" : "w-full text-gray-800 dark:text-gray-100 bg-[#F3F4F6]"} key={index}>
+                    <div className="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-3 md:py-6 flex lg:px-0">
+                        <div className="w-[30px] flex flex-col relative items-end">
+                            <div className="relative h-[30px] w-[30px] p-1 rounded-sm text-white flex items-center justify-center" >
+                                <img alt="user" src={message.isUser ? "https://ionicframework.com/docs/img/demos/avatar.svg" : "https://cryptologos.cc/logos/chatcoin-chat-logo.png"} className="rounded-lg" />
+                            </div>
+                        </div>
+
+                        <div className="relative flex w-[calc(100%-50px)] flex-col gap-1 md:gap-3 lg:w-[calc(100%-115px)]">
+                            <div className="flex flex-grow flex-col gap-3">
+                                <div className="min-h-[20px] flex flex-col items-start gap-4 whitespace-pre-wrap">
+                                    <div className="markdown prose w-full break-words dark:prose-invert dark">
+                                        <p> {message.text}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            ))}
         </>
     )
 }

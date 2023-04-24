@@ -1,7 +1,7 @@
 // import axios from "axios";
 import { Configuration, OpenAIApi } from "openai";
 
-const OPENAI_API_KEY = "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";
+const OPENAI_API_KEY = "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";
 
 const configuration = new Configuration({
   apiKey: OPENAI_API_KEY,

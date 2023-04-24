@@ -36,7 +36,7 @@ function Sidebar() {
                     <br /><br /><br /> <br /><br /><br /><br /><br /><br /><br />
                     <center>
                         <div className="flex items-center w-[120px] mt-12 pt-12" title="Star on Github">
-                            <a href="https://github.com/Fisayomiii/CleverTalk" target="_blank" rel="noreferrer">
+                            <a href="https://github.com/Fisayomiii/CleverTalk/stargazers" target="_blank" rel="noreferrer">
 
                                 <button type="button" className="flex items-center w-full px-4 py-2 text-base font-medium text-black bg-white border-t border-b border-l rounded-l-md hover:bg-gray-100">
                                     <i className="mr-2 bx bx-star"></i>
@@ -86,16 +86,13 @@ function Sidebar() {
                             </div>
 
                             <center>
-
-
                                 <div className="flex items-center w-[120px] mt-12 pt-12" title="Star on Github">
-                                    <a href="https://github.com/Fisayomiii/CleverTalk" target="_blank" rel="noreferrer">
+                                    <a href="https://github.com/Fisayomiii/CleverTalk/stargazers" target="_blank" rel="noreferrer">
                                         <button type="button" className="flex items-center w-full px-4 py-2 text-base font-medium text-black bg-white border-t border-b border-l rounded-l-md hover:bg-gray-100">
                                             <i className="mr-2 bx bx-star"></i>
                                             Star
                                         </button>
                                     </a>
-
 
                                     <div className="w-full px-4 py-2 text-base font-medium text-black bg-white border rounded-r-md hover:bg-gray-100">
                                         <i className="bx bxl-github bx-sm" ></i>
