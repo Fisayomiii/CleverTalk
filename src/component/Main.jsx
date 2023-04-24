@@ -14,6 +14,7 @@ function Main() {
     const handleMessageSubmit = async () => {
         if (input === "") {
             toast.error("Input is empty!");
+            // console.log(`${JSON.stringify(import.meta.env.VITE_REACT_APP_API_KEY)}`);
         } else {
             const userMessage = { text: input, isUser: true };
             toast.promise(sendMessageToOpenAI(input), {
@@ -51,6 +52,7 @@ function Main() {
                     {messages.length > 0 && (
                         <center><button onClick={handleClearLocalStorage} className="flex items-center justify-center bg-[#1C98F7] hover:bg-[#1C98F7] rounded-xl text-white px-4 py-1 mb-3 p-20 flex-shrink-0 w-44">Clear Messages</button></center>
                     )}
+                    {/* <p>{JSON.stringify(import.meta.env.VITE_REACT_APP_API_KEY)}</p> */}
                     <div className="relative flex flex-row items-center h-16 rounded-xl bg-white w-full px-4 p-6">
                         <button className="flex items-center justify-center text-gray-400 hover:text-gray-600" >
                             <i className="bx bxs-microphone bx-sm"></i>
