@@ -10,6 +10,8 @@
 
 ### [Demo](https://clevertalk.vervel.app)
 
+![demo](https://res.cloudinary.com/fisayomithesedays/image/upload/v1682307057/samples/Portfolio/Screenshot_180_nqbqmi.png)
+
 
 ## Features
 
