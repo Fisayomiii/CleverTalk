@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { sendMessageToOpenAI } from "./Openai";
 import toast, { Toaster } from 'react-hot-toast';
 import Chatmessage from "./Chatmessage";
+import Sidebar from "./Sidebar";
 
 function Main() {
 
@@ -27,6 +28,7 @@ function Main() {
                 },
                 error: (error) => {
                     toast.error(`Error: ${error.message}`);
+                    console.log(error);
                 },
             });
         }
@@ -41,11 +43,10 @@ function Main() {
 
     return (
         <>
-            <div className="flex flex-col flex-auto h-full p-2">
-
-                <div className="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-full p-5 " >
-                    <div className="flex flex-col h-full overflow-x-auto mb-4">
-                        <div className="flex flex-col h-full">
+            <div className="bg-gray-100 rounded-2xl m-2 border border-gray-300 h-[90%] md:h-full md:w-full p-3">
+                <div className="relative h-full" >
+                    <div className="">
+                        <div className="">
                             <Chatmessage messages={messages} />
                         </div>
                     </div>
@@ -53,15 +54,15 @@ function Main() {
                         <center><button onClick={handleClearLocalStorage} className="flex items-center justify-center bg-[#1C98F7] hover:bg-[#1C98F7] rounded-xl text-white px-4 py-1 mb-3 p-20 flex-shrink-0 w-44">Clear Messages</button></center>
                     )}
                     {/* <p>{JSON.stringify(import.meta.env.VITE_REACT_APP_API_KEY)}</p> */}
-                    <div className="relative flex flex-row items-center h-16 rounded-xl bg-white w-full px-4 border space-x-4">
+                    <div className="flex items-center h-16 rounded-xl bg-white w-full px-4 border space-x-3 absolute bottom-2">
                         <button className="flex items-center justify-center text-gray-400 hover:text-gray-600" >
                             <i className="bx bxs-microphone bx-sm"></i>
                         </button>
                         <div className="flex-grow">
-                            <div className=" w-full" title="Type a prompt">
+                            <div className="w-full" title="Type a prompt">
                                 <input type="text"
                                     value={input}
-                                    onChange={(e) => setInput(e.target.value)} className="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10" />
+                                    onChange={(e) => setInput(e.target.value)} className="flex w-full border rounded-xl focus:outline-none p-3 focus:border-indigo-300 h-10" />
                             </div>
                         </div>
                         <div>
