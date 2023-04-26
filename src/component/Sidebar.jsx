@@ -6,12 +6,10 @@ function Sidebar() {
 
     return (
         <>
-            <div className="isolate">
-                <span className="flex lg:hidden absolute text-white text-4xl top-5 right-12 cursor-pointer" onClick={() => setMobileMenuOpen(true)} title="open mobile menu">
-                    <i className="bx bx-menu bx-sm px-3 p-3 bg-indigo-500 hover:bg-indigo-600 rounded-md"></i>
-                </span>
+            <div className="isolat">
 
-                <div className="hidden lg:flex flex-col py-8 pl-6 pr-2 w-64 bg-white flex-shrink-0">
+
+                <div className="hidden md:flex flex-col py-8 pl-6 pr-2 w-64 bg-gray-200 flex-shrink-0">
 
                     <div className="flex flex-row items-center justify-center h-12 w-full" title="CleverTalk">
                         <div className="flex items-center justify-center rounded-2xl text-[#1C98F7] bg-indigo-100 h-10 w-10" >
@@ -53,11 +51,18 @@ function Sidebar() {
                 </div>
 
                 {/* mobile menu */}
-
+                <nav className='bg-gray-200 w-full border flex items-center space-x-30 justify-between lg:hidden'>
+                    <div className="lg:hidden text-white text-4xl cursor-pointer" onClick={() => setMobileMenuOpen(true)} title="open mobile menu">
+                        <i className="bx bx-menu bx-sm  p-3 bg-indigo-500 hover:bg-indigo-600 rounded-md"></i>
+                    </div>
+                    <div>
+                        <i className="bx bx-plus bx-sm  p-3 bg-indigo-500 hover:bg-indigo-600 rounded-md"></i>
+                    </div>  
+                </nav>
                 <Dialog as="div" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
-                    <Dialog.Panel className="fixed inset-0 z-20 overflow-y-auto backdrop-blur px-1 py-1 lg:hidden">
+                    <Dialog.Panel className="fixed top-0 inset-0 z-20 overflow-y-auto backdrop-blur lg:hidden">
 
-                        <div className="flex lg:hidden flex-col py-8 pl-3 pr-5 w-64 h-screen bg-white flex-shrink-0 ">
+                        <div className="flex lg:hidden flex-col w-64 h-screen bg-white flex-shrink-0 ">
 
                             <div className="flex items-center justify-between">
                                 <div className="flex flex-row items-center justify-center h-12 w-full" title="CleverTalk">
