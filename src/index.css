@@ -13,7 +13,6 @@
 .top {
     position: relative;
     top: 70%;
-
 }
 
 /*=============== SCROLL BAR ===============*/
@@ -25,4 +24,8 @@
 ::-webkit-scrollbar-thumb {
     background-color: #F3F4F6;
     border-radius: 5px;
+}
+
+.app{
+    visibility: hidden;
 }

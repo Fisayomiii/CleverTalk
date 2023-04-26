@@ -1,12 +1,12 @@
 // import axios from "axios";
 import { Configuration, OpenAIApi } from "openai";
 
+// Api key may not work for you
 const OPENAI_API_KEY = (`${(import.meta.env.VITE_REACT_APP_API_KEY)}`);
 
 const configuration = new Configuration({
   apiKey: OPENAI_API_KEY,
 });
-console.log(OPENAI_API_KEY)
 const openai = new OpenAIApi(configuration);
 
 export async function sendMessageToOpenAI(message) {

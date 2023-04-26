@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 
 const Chatmessage = ({ messages }) => {
     return (
         <>
             {messages.map((message, index) => (
-                <div className={message.isUser ? "w-full text-gray-800 dark:text-gray-100 bg-[#E0E7FF]" : "w-full text-gray-800 dark:text-gray-100 bg-[#F3F4F6]"} key={index}>
+                <div className={message.isUser ? "w-full text-gray-800 border border-gray-300 dark:text-gray-100 bg-[#E0E7FF]" : "w-full text-gray-800 dark:text-gray-100 bg-[#F3F4F6]"} key={index}>
                     <div className="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-3 md:py-6 flex lg:px-0">
                         <div className="w-[30px] flex flex-col relative items-end">
                             <div className="relative h-[30px] w-[30px] p-1 rounded-sm text-white flex items-center justify-center" >
-                                <img alt="user" src={message.isUser ? "https://ionicframework.com/docs/img/demos/avatar.svg" : "https://cryptologos.cc/logos/chatcoin-chat-logo.png"} className="rounded-lg" />
+                                <img alt={message.isUser ? "You" : "Ai"} src={message.isUser ? "https://ionicframework.com/docs/img/demos/avatar.svg" : "https://cryptologos.cc/logos/chatcoin-chat-logo.png"} className="rounded-lg" />
                             </div>
                         </div>
 
