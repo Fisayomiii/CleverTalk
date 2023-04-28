@@ -6,12 +6,10 @@ function Mapp() {
   return (
     <>
       {/* <!-- component --> */}
-      {/* <div className=""> */}
         <div className="md:flex h-screen w-full">
           <Sidebar/>
           <Main />
         </div>
-      {/* </div> */}
     </>
   )
 }

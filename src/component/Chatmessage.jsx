@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Chatmessage = ({ messages }) => {
+    console.log(messages)
     return (
         <>
             {messages.map((message, index) => (
