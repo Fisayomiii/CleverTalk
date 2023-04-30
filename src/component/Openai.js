@@ -1,7 +1,7 @@
 // import axios from "axios";
 import { Configuration, OpenAIApi } from "openai";
 
-// Api key may not work for you
+// Api key will not work for you
 const OPENAI_API_KEY = (`${(import.meta.env.VITE_REACT_APP_API_KEY)}`);
 
 const configuration = new Configuration({

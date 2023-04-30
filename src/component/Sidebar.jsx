@@ -36,9 +36,9 @@ function Sidebar() {
                             <div className="leading-none ml-1 text-xs">Active</div>
                         </div>
                     </div>
-                    <br /><br /><br /> <br /><br /><br /><br /><br /><br /><br />
-                    <center>
-                        <div className="flex items-center w-[120px] mt-12 pt-12" title="Star on Github">
+                    <br /><br /><br /><br /><br /><br /><br />
+                    <center >
+                        <div className="flex items-center justify-center w-[120px]" title="Star on Github">
                             <a href="https://github.com/Fisayomiii/CleverTalk/stargazers" target="_blank" rel="noreferrer">
 
                                 <button type="button" className="flex items-center w-full px-4 py-2 text-base font-medium text-black bg-white border-t border-b border-l rounded-l-md hover:bg-gray-100">
@@ -117,9 +117,10 @@ function Sidebar() {
                                         </div>
                                     </Transition.Child>
 
-                                    <center>
-                                        <div className="flex items-center w-[120px] mt-12 pt-12" title="Star on Github">
+                                    <center className='relative top-80 bottom-0'>
+                                        <div className="flex items-center justify-center w-[120px]" title="Star on Github">
                                             <a href="https://github.com/Fisayomiii/CleverTalk/stargazers" target="_blank" rel="noreferrer">
+
                                                 <button type="button" className="flex items-center w-full px-4 py-2 text-base font-medium text-black bg-white border-t border-b border-l rounded-l-md hover:bg-gray-100">
                                                     <i className="mr-2 bx bx-star"></i>
                                                     Star
@@ -131,6 +132,8 @@ function Sidebar() {
                                             </div>
                                         </div>
                                     </center>
+
+
 
                                 </div>
                             </Dialog.Panel>

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { sendMessageToOpenAI } from "./Openai";
 import toast, { Toaster } from 'react-hot-toast';
 import Chatmessage from "./Chatmessage";
+import ChatInput from "./ChatInput";
 
 function Main() {
     const [input, setInput] = useState("");
@@ -9,6 +10,9 @@ function Main() {
         const savedMessages = localStorage.getItem("messages");
         return savedMessages ? JSON.parse(savedMessages) : [];
     });
+
+    // Ref for scrollIntoView
+    const scroll = useRef();
 
     const handleMessageSubmit = async () => {
         if (input === "") {
@@ -21,13 +25,21 @@ function Main() {
                     const aiMessage = { text: response, isUser: false };
                     setMessages((prevMessages) => [...prevMessages, userMessage, aiMessage]);
                     setInput("");
+
+                    // add Ai message to localStorage
                     localStorage.setItem("messages", JSON.stringify([...messages, userMessage, aiMessage]));
+
+                    // scrollIntoView
+                    scroll.current.scrollIntoView({ behavior: 'smooth', block: "end", inline: "nearest" });
                 },
+                // catch error 
                 error: (error) => {
                     toast.error(`Error: ${error.message}`);
+                    return
                 },
             });
         };
+
     };
 
     const suretoClearLocalStorage = () => {
@@ -70,32 +82,18 @@ function Main() {
                     <div className="flex flex-col h-full overflow-x-auto mb-4">
                         <div className="flex flex-col h-full">
                             <Chatmessage messages={messages} />
+                            <div ref={scroll}></div>
                         </div>
                     </div>
-                    
+
                     {messages.length > 0 && (
                         <center>
                             <button onClick={suretoClearLocalStorage} className="flex items-center justify-center bg-[#1C98F7] hover:bg-[#1C98F7] rounded-xl text-white px-4 py-1 mb-3 p-20 flex-shrink-0 w-44">Clear Messages</button>
                         </center>
                     )}
 
-                    <div className="relative flex flex-row items-center h-16 rounded-xl bg-white w-full px-4 p-6">
-                        <button className="flex items-center justify-center text-gray-400 hover:text-gray-600" >
-                            <i className="bx bxs-microphone bx-sm"></i>
-                        </button>
-                        <div className="flex-grow ml-4">
-                            <div className=" w-full" title="Type a prompt">
-                                <input type="text"
-                                    value={input}
-                                    onChange={(e) => setInput(e.target.value)} className="flex w-full border rounded-xl focus:outline-none focus:border-indigo-300 pl-4 h-10" />
-                            </div>
-                        </div>
-                        <div className="ml-4">
-                            <button class="flex items-center justify-center bg-[#1C98F7] hover:bg-[#1C98F7] rounded-xl text-white px-2 py-1 flex-shrink-0" title="Send message" onClick={handleMessageSubmit}>
-                                <span><i class="bx bxs-send "></i></span>
-                            </button>
-                        </div>
-                    </div>
+                    <ChatInput input={input} setInput={setInput} handleMessageSubmit={handleMessageSubmit} />
+
                 </div>
             </div>
             <Toaster position="top-center" reverseOrder={false} />
