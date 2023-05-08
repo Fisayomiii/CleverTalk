@@ -4,7 +4,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import Chatmessage from "./Chatmessage";
 import ChatInput from "./ChatInput";
 
-function Main() {
+function Main({ photoURL, email }) {
     const [input, setInput] = useState("");
     const [messages, setMessages] = useState(() => {
         const savedMessages = localStorage.getItem("messages");
@@ -81,7 +81,7 @@ function Main() {
                 <div className="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-full p-5 border border-gray-300" >
                     <div className="flex flex-col h-full overflow-x-auto mb-4">
                         <div className="flex flex-col h-full">
-                            <Chatmessage messages={messages} />
+                            <Chatmessage messages={messages} photoURL={photoURL} email={email} />
                             <div ref={scroll}></div>
                         </div>
                     </div>

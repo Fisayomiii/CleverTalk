@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Dialog, Transition } from "@headlessui/react";
 
-function Sidebar() {
+function Sidebar({ handleSignOut }) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
@@ -50,6 +50,14 @@ function Sidebar() {
                             <div className="w-full px-4 py-2 text-base font-medium text-black bg-white border rounded-r-md hover:bg-gray-100">
                                 <i className="bx bxl-github bx-sm" ></i>
                             </div>
+                        </div>
+                        <div className="w-full max-w-xs mt-2">
+                            <button
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-11 rounded"
+                                onClick={handleSignOut}
+                            >
+                                Sign Out
+                            </button>
                         </div>
                     </center>
 
@@ -130,6 +138,14 @@ function Sidebar() {
                                             <div className="w-full px-4 py-2 text-base font-medium text-black bg-white border rounded-r-md hover:bg-gray-100">
                                                 <i className="bx bxl-github bx-sm" ></i>
                                             </div>
+                                        </div>
+                                        <div className="w-full max-w-xs mt-2">
+                                            <button
+                                                className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-11 rounded"
+                                                onClick={handleSignOut}
+                                            >
+                                                Sign Out
+                                            </button>
                                         </div>
                                     </center>
 
