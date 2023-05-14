@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Chatmessage = ({ messages, photoURL, email }) => {
+const Chatmessage = ({ messages }) => {
     return (
         <>
             {messages.map((message, index) => (
@@ -8,7 +8,7 @@ const Chatmessage = ({ messages, photoURL, email }) => {
                     <div className="text-base gap-4 md:gap-6 m-auto md:max-w-2xl lg:max-w-2xl xl:max-w-3xl p-3 md:py-6 flex lg:px-0">
                         <div className="w-[30px] flex flex-col relative items-end">
                             <div className="relative h-[30px] w-[30px] p-1 rounded-sm text-white flex items-center justify-center" >
-                                <img alt={message.isUser ? email : "Clevertalk"} src={message.isUser ? photoURL : "https://cryptologos.cc/logos/chatcoin-chat-logo.png"} className="rounded-lg" />
+                                <img alt={message.isUser ? "You" : "Clevertalk"} src={message.isUser ? "https://thumbnail.imgbin.com/18/23/3/imgbin-computer-icons-avatar-others-JaNLsx6VwNkcQWzUrxe87ra3q_t.jpg" : "https://cryptologos.cc/logos/chatcoin-chat-logo.png"} className="rounded-lg" />
                             </div>
                         </div>
 
