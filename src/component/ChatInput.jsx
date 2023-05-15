@@ -90,8 +90,9 @@ const ChatInput = ({ input, setInput, handleMessageSubmit, handleClearLocalStora
 
                         </div>
 
-                        <div className="px-3 pb-5 pt-3 text-center text-xs text-gray-600 dark:text-gray-300 md:px-4 md:pb-6 md:pt-1">
+                        <div className="flex flex-col px-3 pb-5 pt-3 text-center text-xs text-gray-600 dark:text-gray-300 md:px-4 md:pb-6 md:pt-1">
                             <span>Not affiliated with or endorsed by <a href="https://openai.com" target="_blank" rel="noreferrer" className="underline">OpenAI</a></span>
+                            <span>Designed and Developed by <a href="https://twitter.com/999tweets_her" target="_blank" rel="noreferrer" className="underline">Fisayomi</a> with React and Tailwind</span>
                         </div>
                     </div>
                 </div>

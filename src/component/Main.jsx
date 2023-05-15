@@ -14,7 +14,7 @@ function Main() {
     const [isSending, setIsSending] = useState(false);
 
     // Ref for scrollIntoView
-    const scroll = useRef();
+    // const scroll = useRef();
 
     // const handleMessageSubmit = async () => {
     //     if (input === "") {
@@ -61,7 +61,7 @@ function Main() {
                     setIsSending(false); // enable the button after message is sent
 
                     // scrollIntoView
-                    scroll.current.scrollIntoView({ behavior: 'smooth', block: "end", inline: "nearest" });
+                    // scroll.current.scrollIntoView({ behavior: 'smooth', block: "end", inline: "nearest" });
                 },
                 error: (error) => {
                     setIsSending(false); // enable the button after message is sent
@@ -113,8 +113,10 @@ function Main() {
                     {messages.length > 0 ? <div className="flex flex-col h-full overflow-x-auto mb-4">
                         <div className="flex flex-col h-full">
                             <Chatmessage messages={messages} />
-                            <div ref={scroll}></div>
+                            <br /><br /><br /><br /><br /><br />
                         </div>
+                        {/* <div ref={scroll}></div> */}
+
                     </div> :
                         <Info />
                     }
