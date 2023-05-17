@@ -36,7 +36,7 @@ const ChatInput = ({ input, setInput, handleMessageSubmit, handleClearLocalStora
 
     return (
         <>
-            {/* {messages.length > 0 && (
+            {messages.length > 0 && (
                 <center>
                     <button onClick={handleClearLocalStorage} className="flex items-center justify-center bg-[#1C98F7] hover:bg-[#1C98F7] rounded-xl text-white px-4 py-1 mb-3 p-20 flex-shrink-0 w-44">Clear Messages</button>
                 </center>
@@ -58,10 +58,13 @@ const ChatInput = ({ input, setInput, handleMessageSubmit, handleClearLocalStora
                         <span><i className="bx bxs-send "></i></span>
                     </button>
                 </div>
+            </div>
+            <div className="flex flex-col px-3 text-center text-xs text-gray-600 dark:text-gray-300 md:px-4">
+                <span>Not affiliated with or endorsed by <a href="https://openai.com" target="_blank" rel="noreferrer" className="underline">OpenAI</a></span>
+                <span>Designed and Developed by <a href="https://twitter.com/999tweets_her" target="_blank" rel="noreferrer" className="underline">Fisayomi</a> with React and Tailwind</span>
+            </div>
 
-            </div> */}
-
-            <div className="flex items-center justify-center">
+            {/* <div className="flex items-center justify-center">
                 <div className="absolute bottom-0 left-0 w-full border-t border-t-0 dark:border-white/20 lg:border-transparent lg:dark:border-transparent lg:bg-vert-light-gradient bg-white dark:bg-gray-800 lg:!bg-transparent dark:lg:bg-vert-dark-gradient pt-2">
                     <div className="ml-[0px] lg:ml-[160px]">
 
@@ -96,7 +99,7 @@ const ChatInput = ({ input, setInput, handleMessageSubmit, handleClearLocalStora
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }
