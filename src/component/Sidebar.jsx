@@ -92,11 +92,11 @@ function Sidebar() {
                                             leaveTo="opacity-0 translate-y-10">
                                             <div className="flex flex-row items-center justify-center h-12 w-full" title="CleverTalk">
 
-                                                <div className="flex items-center justify-center rounded-2xl text-indigo-700 bg-[#1C98F7] h-10 w-10" >
-                                                    <i className="bx bx-conversation bx-sm" ></i>
-                                                </div>
+                                            <div className="h-8 w-8 rounded-full border overflow-hidden">
+                                                <img src="https://cryptologos.cc/logos/chatcoin-chat-logo.png" alt="Avatar" className="h-full w-full" />
+                                            </div>
 
-                                                <div className="ml-2 font-bold text-2xl">CleverTalk</div>
+                                                <div className="ml-2 font-bold text-1xl">CleverTalk</div>
 
                                             </div>
                                         </Transition.Child>
@@ -117,7 +117,7 @@ function Sidebar() {
                                         leaveTo="opacity-0 scale-95 "
                                     >
                                         <div className="flex flex-col items-center bg-indigo-100 border border-gray-200 mt-4 w-full py-6 px-4 rounded-lg" >
-                                            <div className="h-20 w-20 rounded-full border overflow-hidden">
+                                            <div className="h-10 w-10 rounded-full border overflow-hidden">
                                                 <img src="https://cryptologos.cc/logos/chatcoin-chat-logo.png" alt="Avatar" className="h-full w-full" />
                                             </div>
                                             <div className="text-sm font-semibold mt-2">CleverTalk</div>
@@ -125,7 +125,7 @@ function Sidebar() {
                                         </div>
                                     </Transition.Child>
 
-                                    <center className='relative top-80 bottom-0'>
+                                    <center className='relative top-56 bottom-0'>
                                         <div className="flex items-center justify-center w-[120px]" title="Star on Github">
                                             <a href="https://github.com/Fisayomiii/CleverTalk/stargazers" target="_blank" rel="noreferrer">
 
@@ -139,14 +139,6 @@ function Sidebar() {
                                                 <i className="bx bxl-github bx-sm" ></i>
                                             </div>
                                         </div>
-                                        {/* <div className="w-full max-w-xs mt-2">
-                                            <button
-                                                className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-11 rounded"
-                                                onClick={handleSignOut}
-                                            >
-                                                Sign Out
-                                            </button>
-                                        </div> */}
                                     </center>
 
 

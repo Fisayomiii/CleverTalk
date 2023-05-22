@@ -11,6 +11,7 @@ function Main() {
         const savedMessages = localStorage.getItem("messages");
         return savedMessages ? JSON.parse(savedMessages) : [];
     });
+    // when message is sent , users should not be able to click on the button untafter responce is gotten
     const [isSending, setIsSending] = useState(false);
 
     // Ref for scrollIntoView
@@ -113,13 +114,19 @@ function Main() {
                     {messages.length > 0 ? <div className="flex flex-col h-full overflow-x-auto mb-4">
                         <div className="flex flex-col h-full">
                             <Chatmessage messages={messages} />
-                            <br /><br /><br /><br /><br /><br />
+                            <br /><br /><br /><br />
                         </div>
                         {/* <div ref={scroll}></div> */}
 
                     </div> :
                         <Info />
                     }
+
+                    {messages.length > 0 && (
+                        <center>
+                            <button onClick={handleClearLocalStorage} className="flex items-center justify-center bg-[#1C98F7] hover:bg-[#1C98F7] rounded-xl text-white px-4 py-1 mb-3 p-20 flex-shrink-0 w-44">Clear Messages</button>
+                        </center>
+                    )}
 
                     <ChatInput input={input} setInput={setInput} handleMessageSubmit={handleMessageSubmit} handleClearLocalStorage={handleClearLocalStorage} messages={messages} isSending={isSending} />
 
