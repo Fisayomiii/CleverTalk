@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import Chatmessage from "./Chatmessage";
 import ChatInput from "./ChatInput";
 import Info from "./Info";
+import popsound from "../assets/Sound/notification.mp3";
 
 function Main() {
     const [input, setInput] = useState("");
@@ -11,37 +12,22 @@ function Main() {
         const savedMessages = localStorage.getItem("messages");
         return savedMessages ? JSON.parse(savedMessages) : [];
     });
-    // when message is sent , users should not be able to click on the button untafter responce is gotten
+    // when message is sent , users should not be able to click on the button untilafter responce is gotten
     const [isSending, setIsSending] = useState(false);
 
     // Ref for scrollIntoView
     // const scroll = useRef();
 
-    // const handleMessageSubmit = async () => {
-    //     if (input === "") {
-    //         toast.error("Input is empty!")
-    //     } else {
-    //         const userMessage = { text: input, isUser: true };
-    //         setMessages((prevMessages) => [...prevMessages, userMessage]);
-    //         setInput("");
+    const [notificationAudio] = useState(new Audio(popsound));
 
-    //         try {
-
-    //             const response = await sendMessageToOpenAI(input);
-    //             const aiMessage = { text: response, isUser: false };
-    //             setMessages((prevMessages) => [...prevMessages, aiMessage]);
-    //             localStorage.setItem("messages", JSON.stringify([...messages, userMessage, aiMessage]));
-
-    //         } catch (error) {
-    //             toast.error(`Error: ${error.message}`);
-    //         }
-
-    //     }
-    // };
+    const playNotificationSound = () => {
+        notificationAudio.play();
+    };
 
     const handleMessageSubmit = async () => {
         if (input === "") {
             toast.error("Input is empty!");
+            navigator.vibrate(700);
         } else {
             setIsSending(true);
 
@@ -50,6 +36,8 @@ function Main() {
                 loading: "Sending message...",
                 success: (response) => {
                     const aiMessage = { text: response, isUser: false };
+                    playNotificationSound();
+
                     setMessages((prevMessages) => [...prevMessages, userMessage, aiMessage]);
                     setInput("");
 
@@ -110,6 +98,7 @@ function Main() {
         <>
             <div className="flex flex-col flex-auto h-full p-2">
                 <div className="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-full p-5 border border-gray-300" >
+                    {/* <audio src={popsound} /> */}
 
                     {messages.length > 0 ? <div className="flex flex-col h-full overflow-x-auto mb-4">
                         <div className="flex flex-col h-full">
@@ -124,7 +113,7 @@ function Main() {
 
                     {messages.length > 0 && (
                         <center>
-                            <button onClick={handleClearLocalStorage} className="flex items-center justify-center bg-[#1C98F7] hover:bg-[#1C98F7] rounded-xl text-white px-4 py-1 mb-3 p-20 flex-shrink-0 w-44">Clear Messages</button>
+                            <button onClick={handleClearLocalStorage} className="flex items-center justify-center bg-[#1C98F7] hover:bg-[#1C98F7] rounded-xl text-white px-0 py-1 mb-3 p-20 flex-shrink-0 w-44">Clear Conversations</button>
                         </center>
                     )}
 
