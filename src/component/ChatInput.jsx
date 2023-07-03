@@ -39,7 +39,9 @@ const ChatInput = ({ input, setInput, handleMessageSubmit, isSending }) => {
 
             <div className="relative bottom-0 left-0 flex flex-row items-center h-16 rounded-xl bg-white w-full px-4 p-6">
                 <button className={isListening ? "flex items-center justify-center text-green-400" : "flex items-center justify-center text-red-400"} onClick={handleToggleListening} title={isListening ? "Turn Off Mic" : "Turn On Mic"}>
-                    <i className="bx bxs-microphone bx-sm"></i>
+                    {!isListening ?
+                        <ion-icon name="mic-off-outline" size="small"></ion-icon> : <ion-icon name="mic-outline" size="small"></ion-icon>
+                    }
 
                 </button>
                 <div className="flex-grow ml-4">
@@ -51,7 +53,7 @@ const ChatInput = ({ input, setInput, handleMessageSubmit, isSending }) => {
                 </div>
                 <div className="ml-4">
                     <button className="flex items-center justify-center bg-[#1C98F7] hover:bg-[#1C98F7] rounded-xl text-white px-2 py-1 flex-shrink-0" title={isSending ? "Sending..." : "Send Message "} onClick={handleMessageSubmit} disabled={isSending}>
-                        <span><i className="bx bxs-send "></i></span>
+                        <span><i className="bx bx-send "></i></span>
                     </button>
                 </div>
             </div>

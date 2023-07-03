@@ -8,7 +8,6 @@ function App() {
 
             <Mapp />
             <Toaster position="top-center" reverseOrder={false} />
-
         </>
     )
 }

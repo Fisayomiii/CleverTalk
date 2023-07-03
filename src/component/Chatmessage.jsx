@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Chatmessage = ({ messages }) => {
+const Chatmessage = ({ messages,handleCopyToClipboard }) => {
     return (
         <>
             {messages.map((message, index) => (
@@ -21,8 +21,15 @@ const Chatmessage = ({ messages }) => {
                                 </div>
                             </div>
                         </div>
+
+                        {!message.isUser ? <div className="w-[30px] flex flex-col relative items-end">
+                            <div className="relative h-[30px] w-[30px] p-1 rounded-sm text-red flex items-center justify-center cursor-pointer" onClick={() => handleCopyToClipboard(message.text)}>
+                                <ion-icon name="copy-outline"></ion-icon>
+                            </div>
+                        </div> : null}
+
                     </div>
-                    
+
                 </div>
             ))}
         </>

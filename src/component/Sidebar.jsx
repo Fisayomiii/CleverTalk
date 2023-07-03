@@ -18,7 +18,7 @@ function Sidebar() {
 
                     <div className="flex flex-row items-center justify-center h-12 w-full" title="CleverTalk">
                         <div className="flex items-center justify-center rounded-2xl text-[#1C98F7] bg-indigo-100 h-10 w-10" >
-                            <i className="bx bx-conversation bx-sm" ></i>
+                            <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
                         </div>
                         <div className="ml-2 font-bold text-2xl">CleverTalk</div>
                     </div>
@@ -92,9 +92,9 @@ function Sidebar() {
                                             leaveTo="opacity-0 translate-y-10">
                                             <div className="flex flex-row items-center justify-center h-12 w-full" title="CleverTalk">
 
-                                            <div className="h-8 w-8 rounded-full border overflow-hidden">
-                                                <img src="https://cryptologos.cc/logos/chatcoin-chat-logo.png" alt="Avatar" className="h-full w-full" />
-                                            </div>
+                                                <div className="h-8 w-8 rounded-full border overflow-hidden">
+                                                    <img src="https://cryptologos.cc/logos/chatcoin-chat-logo.png" alt="Avatar" className="h-full w-full" />
+                                                </div>
 
                                                 <div className="ml-2 font-bold text-1xl">CleverTalk</div>
 
