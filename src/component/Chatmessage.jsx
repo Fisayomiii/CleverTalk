@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Chatmessage = ({ messages,handleCopyToClipboard }) => {
+const Chatmessage = ({ messages, handleCopyToClipboard }) => {
     return (
         <>
             {messages.map((message, index) => (
@@ -36,4 +36,4 @@ const Chatmessage = ({ messages,handleCopyToClipboard }) => {
     )
 }
 
-export default Chatmessage
+export default Chatmessage;

@@ -18,4 +18,4 @@ const SignIn = ({ handleSignIn }) => {
     )
 }
 
-export default SignIn
+export default SignIn;

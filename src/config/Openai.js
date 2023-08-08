@@ -20,4 +20,4 @@ export async function sendMessageToOpenAI(message) {
     presence_penalty: 0,
   });
   return response.data.choices[0].text;
-}
+};

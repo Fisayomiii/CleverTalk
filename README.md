@@ -46,6 +46,3 @@ npm run dev
 
 > If you'd like to contribute to CleverTalk, you can fork this repository and make your changes in a separate branch. Then, submit a pull request to have your changes reviewed and merged into the main branch.
 
-## License
-
-> CleverTalk is licensed under the MIT License. Feel free to use, modify, and distribute this app as you like.
